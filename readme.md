@@ -9,3 +9,8 @@ The goal of **Open Societyware** is to provide a comprehensive, easy-to-use base
 # How?
 
 Installation instructions will be provided in future.
+
+# Extra information
+
+- [License information](/LICENSE)  
+- [Initial requirements](/notes/requirements.md)
