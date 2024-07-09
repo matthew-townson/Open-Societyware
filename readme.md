@@ -10,6 +10,11 @@ The goal of **Open Societyware** is to provide a comprehensive, easy-to-use base
 
 Installation instructions will be provided in future.
 
+# Contribute
+
+If you have any things you want to add, either open an issue with the [issue tracker](https://github.com/matthew-townson/Open-Societyware/issues), or [create a fork](https://github.com/matthew-townson/Open-Societyware/fork) and open a pull request.  
+This project is open (by name and nature) for you to contribute to.  
+
 # Extra information
 
 - [License information](/LICENSE)  
