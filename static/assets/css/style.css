@@ -24,7 +24,7 @@ body {
 }
   
 nav {
-    height: 5vh;
+    height: 4vh;
     overflow: hidden;
     background: rgb(91,56,143);
     background: linear-gradient(177deg, rgba(91,56,143,1) 38%, rgba(255,165,26,1) 100%); 
@@ -39,16 +39,16 @@ nav a {
     float: left;
     color: white;
     text-align: center;
-    padding: 1vmin;
+    padding: 1vh;
     text-decoration: none;
-    font-size: 2.5vh;
+    font-size: 2vh;
     font-family: 'IBM-Plex-Sans-semi', Fallback, sans-serif;
     line-height: 25px;
     border-radius: 4px;
 }
 
 nav #title {
-    font-size: 35px;
+    font-size: 2.5vh;
     font-weight: bold;
     transition: 0.4s;
 }
@@ -110,44 +110,7 @@ nav .navr {
     color: rgb(74, 214, 81);
 }
 
-.about-container {
-    margin-top: 5vh;
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
-.about-container h1 {
-    font-size: 12vmin;
-}
-
-.about-container div {
-    grid-row-start: 1;
-    grid-column-start: 1;
-}
-
-.slideshow {
+.content {
+    margin-top: 4vh;
     background-color: black;
-}
-
-.aboutxt {
-    margin-left: 1vh;
-    filter: invert();
-    mix-blend-mode: difference;
-    z-index: 2;
-    font-size: 2vmin;
-}
-
-.slide {
-    z-index: 1;
-    margin-left: auto;
-    max-height: 85vh;
-    max-width: 100vw;
-    animation: ssfade 5s infinite;
-}
-
-@keyframes ssfade {
-    0% {opacity:0}
-    5% {opacity:1}
-    95% {opacity:1}
-    100% {opacity:0}
 }
