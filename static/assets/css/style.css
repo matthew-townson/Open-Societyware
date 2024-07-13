@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'IBM-Plex-Sans-med';
+    font-family: 'IBM-Plex-Sans-Med';
     src: url('/assets/fonts/IBMPlexSans/IBMPlexSans-Medium.woff2') format('woff2'),
        url('/assets/fonts/IBMPlexSans/IBMPlexSans-Medium.woff') format('woff'),
        url('/assets/fonts/IBMPlexSans/IBMPlexSans-Medium.ttf') format('ttf');
@@ -9,7 +9,7 @@
 }
  
 @font-face {
-    font-family: 'IBM-Plex-Sans-semi';
+    font-family: 'IBM-Plex-Sans-Semi';
     src: url('/assets/fonts/IBMPlexSans/IBMPlexSans-SemiBold.woff2') format('woff2'),
        url('/assets/fonts/IBMPlexSans/IBMPlexSans-SemiBold.ttf') format('ttf'),
        url('/assets/fonts/IBMPlexSans/IBMPlexSans-SemiBold.woff') format('woff');
@@ -18,16 +18,24 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Inter-Reg';
+    src: url('/assets/fonts/Inter/Inter-Regular.woff2') format('woff2'),
+        url('/assets/fonts/Inter/Inter-Regular.woff') format('woff'),
+        url('/assets/fonts/Inter/Inter-Regular.ttf') format('ttf');
+    font-style: normal;
+    font-display: swap;
+}
+
 body { 
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Inter-Reg, Arial, Helvetica, sans-serif;
 }
   
 nav {
     height: 4vh;
     overflow: hidden;
-    background: rgb(91,56,143);
-    background: linear-gradient(177deg, rgba(91,56,143,1) 38%, rgba(255,165,26,1) 100%); 
+    background: #4E8098;
     position: fixed;
     width: 100%;
     top: 0;
@@ -42,12 +50,13 @@ nav a {
     padding: 1vh;
     text-decoration: none;
     font-size: 2vh;
-    font-family: 'IBM-Plex-Sans-semi', Fallback, sans-serif;
+    font-family: 'IBM-Plex-Sans-Semi', Fallback, sans-serif;
     line-height: 25px;
     border-radius: 4px;
 }
 
 nav #title {
+    color: white;
     font-size: 2.5vh;
     font-weight: bold;
     transition: 0.4s;
@@ -55,7 +64,7 @@ nav #title {
   
 nav a:hover {
     transition: 0.4s;
-    color: rgb(74, 214, 81);
+    color: #cbcfd6;
 }
 
 nav::after {
@@ -66,7 +75,7 @@ nav::after {
     height: 5px;
     bottom: 0;
     left: 0;
-    background-color: #ffa51a;
+    background-color: #90C2E7;
     transform-origin: bottom right;
     transition: transform 0.5s ease-out;
 }
@@ -100,7 +109,7 @@ nav .navr {
     padding: 1vmin;
     text-decoration: none;
     font-size: 2.5vh;
-    font-family: 'IBM-Plex-Sans-semi', Fallback, sans-serif;
+    font-family: 'IBM-Plex-Sans-Semi', Fallback, sans-serif;
     line-height: 25px;
     border-radius: 4px;
 }
@@ -112,5 +121,4 @@ nav .navr {
 
 .content {
     margin-top: 4vh;
-    background-color: black;
 }
