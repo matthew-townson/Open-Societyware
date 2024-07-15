@@ -53,6 +53,7 @@ nav a {
     font-family: 'IBM-Plex-Sans-Semi', Fallback, sans-serif;
     line-height: 25px;
     border-radius: 4px;
+    transition: color 0.4s ease-in-out;
 }
 
 nav #title {
@@ -62,9 +63,12 @@ nav #title {
     transition: 0.4s;
 }
   
-nav a:hover {
-    transition: 0.4s;
+nav a:hover:not(#title) {
     color: #cbcfd6;
+}
+
+#title:hover {
+    background-color: #A31621;
 }
 
 nav::after {
