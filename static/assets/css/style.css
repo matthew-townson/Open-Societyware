@@ -48,11 +48,10 @@ nav a {
     color: white;
     text-align: center;
     padding: 1vh;
+    vertical-align: middle;
     text-decoration: none;
     font-size: 2vh;
     font-family: 'IBM-Plex-Sans-Semi', Fallback, sans-serif;
-    line-height: 25px;
-    border-radius: 4px;
 }
 
 nav #title {
@@ -61,13 +60,15 @@ nav #title {
     font-weight: bold;
     transition: 0.4s;
 }
-  
+
+/*
 nav a:hover {
     transition: 0.4s;
     color: #cbcfd6;
 }
+*/
 
-nav::after {
+ul::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -78,15 +79,56 @@ nav::after {
     background-color: #90C2E7;
     transform-origin: bottom right;
     transition: transform 0.5s ease-out;
+    z-index: 70;
 }
 
-nav:hover::after {
+ul:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
 } 
-  
+
 nav .navr {
     float: right;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4E8098;
+}
+  
+li {
+    float: right;
+}
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 1vh 1vh;
+    text-decoration: none;
+    transition: color 0.4s ease-in-out;
+    font-family: 'IBM-Plex-Sans-Med', Fallback, sans-serif;
+}
+  
+li a:hover:not(.title) {
+    color: #cbcfd6;
+}
+  
+li a:after:not(.title) {
+    color: white;
+    transition: color 0.4s ease-in-out;
+}
+  
+.title {
+    background-color: #4E8098;
+    transition: background-color 0.4s ease-in-out;
+}
+  
+.title:hover {
+    background-color: #A31621;
 }
 
 .footer {
