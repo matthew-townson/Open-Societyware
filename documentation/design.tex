@@ -1,0 +1,54 @@
+\documentclass{report}
+
+% Import packages
+\usepackage{datetime2}
+\usepackage{titling}
+
+\righthyphenmin 62
+\lefthyphenmin 62
+
+\title{Open-Societyware \\
+       Design Guide}
+\author{Matthew Townson}
+
+\begin{document}
+    \begin{titlepage}
+        \centering
+        \vspace*{1in}
+        {\Huge\bfseries\thetitle \par}
+        \vspace{1.5in}
+        {\Large\theauthor \par}
+        \vfill
+        {\large Latest revision: \DTMtoday \par}
+    \end{titlepage}
+
+    \pagenumbering{gobble}
+    \newpage
+    \tableofcontents
+    \newpage
+
+    \pagenumbering{roman}
+    \renewcommand\thesection{\arabic{section}.0}
+    \renewcommand\thesubsection{\arabic{section}.\arabic{subsection}}
+    \setcounter{section}{-1}
+
+    \raggedright
+
+    \section{Introduction}
+    \paragraph*{}
+        Welcome to \textbf{Open Societyware}, the open-source, multifeatured, modular society system for everyone. \\
+        The aim of this project is to provide University Societies, Clubs, and other activity groups a place to manage
+        an online presence. This includes features such as keeping track of members, and their roles within the society,
+        use of a website, blog, voting system, and maybe more in the future... \\
+    
+    \paragraph*{}
+        \textbf{Open Societyware} is an open-source project, if the name wasn't enough of an indication. This means
+        you are free to use the software as you like, within the constraints of the CC SA 4.0 license.
+
+    \newpage
+    \pagenumbering{arabic}
+    \section{Design}
+
+
+
+\end{document}
