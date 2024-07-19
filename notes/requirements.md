@@ -54,3 +54,6 @@ Mirror features from fb group events
 
 # File sharing
 Basic system for sharing music/links to music that can be access controlled (in case of non-pd music)  
+
+# Design philosophy
+Modularity - set a simple structure to add drop-in functionality
