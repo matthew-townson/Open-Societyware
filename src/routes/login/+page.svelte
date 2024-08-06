@@ -1,0 +1,1 @@
+<meta http-equiv="refresh" content="0; url=https://weblogin.lancs.ac.uk/jwt/opensocware" />
