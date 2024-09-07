@@ -1,6 +1,7 @@
 import { redirect, error } from '@sveltejs/kit';
 import jwt from 'jsonwebtoken';
 import { JWT_SECRET, HTTP_SECURE } from '$env/static/private';
+import { checkUser, newUser } from '$lib/db';
 
 export async function load({ url, cookies }) {
     const token = url.searchParams.get('jwt');
@@ -9,19 +10,18 @@ export async function load({ url, cookies }) {
 
     if (!token) {
         console.error('No token provided');
-        return {
-            status: 400,
-            body: { error: 'Token is missing' }
-        };
+        throw error(400, 'Token is missing');
     }
+
+    let verifiedJWT;
 
     try {
         // verify JWT
-        const verified = jwt.verify(token, JWT_SECRET);
-        console.log('JWT verified successfully:', verified);
+        verifiedJWT = jwt.verify(token, JWT_SECRET);
+        console.log('JWT verified successfully:', verifiedJWT);
 
         // set cookies
-        cookies.set('session', generateSessionId(verified), {
+        cookies.set('session', generateSessionId(verifiedJWT), {
             httpOnly: true,
             secure: HTTP_SECURE,
             sameSite: 'strict',
@@ -30,7 +30,7 @@ export async function load({ url, cookies }) {
         });
 
     } catch (e) {
-        console.error('JWT verification failed:', error.message, e);
+        console.error('JWT verification failed:', e.message, e);
 
         let errorMessage = 'Invalid token';
         if (e.name === 'TokenExpiredError') {
@@ -41,11 +41,20 @@ export async function load({ url, cookies }) {
             errorMessage = 'Token is not valid yet';
         }
 
-        error(401, {
-            message: errorMessage
-        });
+        throw error(401, errorMessage);
     }
-    console.log('SUCCESS')
+
+    //console.log('SUCCESS,', verifiedJWT.username, 'logged in');
+
+    const userID = await checkUser(verifiedJWT.username);
+
+    if (userID) {
+        console.log(`${verifiedJWT.username} exists`);
+    } else {
+        await newUser(verifiedJWT.username, verifiedJWT.displayName, verifiedJWT.mail);  // Added 'await'
+        console.log(`User ${verifiedJWT.username} created`);
+    }
+
     return redirect(302, '/');
 }
 
