@@ -14,7 +14,10 @@ export const getUserID = (username) => {
 // add a new user to the db
 export const newUser = (username, displayName, personalEmail) => {
     const query = db.prepare('INSERT INTO Users (username, displayName, personalEmail) VALUES (?, ?, ?)');
-    return query.run(username, displayName, personalEmail);
+    query.run(username, displayName, personalEmail);
+    const userID = getUserID(username);
+    console.log(userID.userID);
+    specUserType(userID.userID, 6);
 }
 
 // give a user a type

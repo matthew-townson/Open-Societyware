@@ -1,7 +1,8 @@
 import { redirect, error } from '@sveltejs/kit';
 import jwt from 'jsonwebtoken';
 import { JWT_SECRET, HTTP_SECURE } from '$env/static/private';
-import { checkUser, newUser } from '$lib/db';
+import { getUserID, newUser, specUserType } from '$lib/db';
+import { getUserID } from '../../../lib/db.js';
 
 export async function load({ url, cookies }) {
     const token = url.searchParams.get('jwt');
@@ -44,14 +45,18 @@ export async function load({ url, cookies }) {
         throw error(401, errorMessage);
     }
 
-    //console.log('SUCCESS,', verifiedJWT.username, 'logged in');
+    console.log('SUCCESS,', verifiedJWT.username, 'logged in');
 
-    const userID = await checkUser(verifiedJWT.username);
+    const userID = await getUserID(verifiedJWT.username);
 
+    // do we need to create a new user in the db?
     if (userID) {
         console.log(`${verifiedJWT.username} exists`);
     } else {
-        await newUser(verifiedJWT.username, verifiedJWT.displayName, verifiedJWT.mail);  // Added 'await'
+        // add the user to the user table with the jwt token attributes, then get the ID of said user, and specify their type
+        await newUser(verifiedJWT.username, verifiedJWT.displayName, verifiedJWT.mail);
+        //const userIDnew = await getUserID(verifiedJWT.username);
+        //console.log(`USERID: ${userIDnew}`);
         console.log(`User ${verifiedJWT.username} created`);
     }
 
