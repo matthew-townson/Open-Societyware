@@ -1,6 +1,6 @@
 import { redirect, error } from '@sveltejs/kit';
 import jwt from 'jsonwebtoken';
-import { JWT_SECRET, HTTPS } from '$env/static/private';
+import { JWT_SECRET, HTTP_SECURE } from '$env/static/private';
 
 export async function load({ url, cookies }) {
     const token = url.searchParams.get('jwt');
