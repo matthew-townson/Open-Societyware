@@ -3,7 +3,6 @@
     <div class="navr">
         <a href="/">Home</a>
         <a href="/music">Music</a>
-        <a href="/login">Login</a>
     </div>
 </nav>
 <div class="content"><slot></slot></div>
