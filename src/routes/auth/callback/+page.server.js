@@ -1,7 +1,7 @@
 import { redirect, error } from '@sveltejs/kit';
 import jwt from 'jsonwebtoken';
 import { JWT_SECRET, HTTP_SECURE } from '$env/static/private';
-import { getUserID, newUser, specUserType } from '$lib/db';
+import { getUserID, newUser } from '$lib/db';
 import { getUserID } from '../../../lib/db.js';
 
 export async function load({ url, cookies }) {
