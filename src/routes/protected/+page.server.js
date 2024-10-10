@@ -9,6 +9,6 @@ export async function load({ cookies }) {
     }
 
     return {
-        user: 'some user info from your token', // or whatever user info you want to pass
+        user: 'some user info from your token'
     };
 }
